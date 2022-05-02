@@ -19,7 +19,7 @@ class GameViewModel : ViewModel() {
     private var wordsList: MutableList<String> = mutableListOf()
     private lateinit var currentWord: String
 
-    /*
+    /**
     * Updates currentWord and currentScrambledWord with the next word.
     */
     private fun getNextWord() {
@@ -40,7 +40,7 @@ class GameViewModel : ViewModel() {
         }
     }
 
-    /*
+    /**
     * Returns true if the current word count is less than MAX_NO_OF_WORDS.
     * Updates the next word.
     */
@@ -73,4 +73,13 @@ class GameViewModel : ViewModel() {
         return false
     }
 
+    /**
+    * Re-initializes the game data to restart the game.
+    */
+    fun reinitializeData() {
+        _score = 0
+        _currentWordCount = 0
+        wordsList.clear()
+        getNextWord()
+    }
 }
